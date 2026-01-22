@@ -9,7 +9,12 @@ GREEN = "\033[92m"
 YELLOW = "\033[93m"
 CYAN = "\033[96m"
 RESET = "\033[0m"
-
+def banner():
+    os.system("cls" if os.name == "nt" else "clear")
+    print(CYAN + "=" * 60)
+    print(" " * 18 + "File Metadata Extractor")
+    print(" " * 10 + "Extract all Remove only Images")
+    print("=" * 60 + RESET)
 
 def main():
     while True:
