@@ -21,11 +21,12 @@ def is_image(path):
     return path.lower().endswith((".jpg", ".jpeg", ".png", ".tiff", ".bmp"))
 
 
+
+
 def main():
     while True:
         banner()
-
-
+        raw = input("Enter file path or name: ").strip()
 
 
 
