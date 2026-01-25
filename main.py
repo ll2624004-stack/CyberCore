@@ -16,6 +16,11 @@ def banner():
     print(" " * 10 + "Extract all Remove only Images")
     print("=" * 60 + RESET)
 
+
+def is_image(path):
+    return path.lower().endswith((".jpg", ".jpeg", ".png", ".tiff", ".bmp"))
+
+
 def main():
     while True:
         banner()
