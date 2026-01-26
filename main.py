@@ -27,6 +27,11 @@ def main():
     while True:
         banner()
         raw_input = input("Enter file path or name: ").strip()
+           
+        if not raw_input:
+            continue
+        if raw_input.lower() in ["exit", "quit"]:
+            break
 
 
 
