@@ -33,7 +33,8 @@ def main():
         if raw_input.lower() in ["exit", "quit"]:
             break
 
-
+             
+        file_path = os.path.expanduser(raw_input)
 
 
 
