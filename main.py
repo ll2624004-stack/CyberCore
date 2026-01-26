@@ -26,7 +26,7 @@ def is_image(path):
 def main():
     while True:
         banner()
-        raw = input("Enter file path or name: ").strip()
+        raw_input = input("Enter file path or name: ").strip()
 
 
 
