@@ -69,8 +69,7 @@ def main():
                 file_path = matches[0]
             else:
                 file_path = choose_file(matches)
-                if not file_path:
-                    continue
+
              
         file_path = os.path.expanduser(raw_input)
 
