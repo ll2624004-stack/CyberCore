@@ -60,6 +60,7 @@ def main():
             continue
         if raw_input.lower() in ["exit", "quit"]:
             break
+
         if not os.path.isfile(file_path):
             matches = search_file(raw_input)
             if not matches:
