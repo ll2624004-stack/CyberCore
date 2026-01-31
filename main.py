@@ -65,7 +65,7 @@ def main():
             if not matches:
                 print(RED + "File Not Found" + RESET)
                 continue
-            elif len(matches)==1:
+            elif len(matches) == 1:
                 file_path = matches[0]
             else:
                 file_path = choose_file(matches)
