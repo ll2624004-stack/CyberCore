@@ -20,7 +20,19 @@ def banner():
 def is_image(path):
     return path.lower().endswith((".jpg", ".jpeg", ".png", ".tiff", ".bmp"))
 
-
+def search_file(filename):
+    print(YELLOW + f"[*] Searching {filename}"+ RESET)
+    search_paths=[os.path.expanduser("~"),"/madia","/mnt"]
+    matches=[]
+    for base in search_paths:
+        if not os.path.exists(base):
+            continue
+        for root,_,files in os.walk(base):
+            if filename in files:
+                matches.append(os.path.join(root,filename))
+            if len(matches)>=10:
+                return matches
+    return matches
 
 
 def main():
