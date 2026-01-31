@@ -60,7 +60,17 @@ def main():
             continue
         if raw_input.lower() in ["exit", "quit"]:
             break
-
+        if not os.path.isfile(file_path):
+            matches = search_file(raw_input)
+            if not matches:
+                print(RED + "File Not Found" + RESET)
+                continue
+            elif len(matches)==1:
+                file_path = matches[0]
+            else:
+                file_path = choose_file(matches)
+                if not file_path:
+                    continue
              
         file_path = os.path.expanduser(raw_input)
 
