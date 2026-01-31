@@ -20,6 +20,22 @@ def banner():
 def is_image(path):
     return path.lower().endswith((".jpg", ".jpeg", ".png", ".tiff", ".bmp"))
 
+def choose_file(matches):
+    print(YELLOW + "\nFound multiple files:")
+    for i,path in enumerate(matches,1):
+        print(f"{i}. {path}")
+        print(RESET)
+    while True:
+        choice = input("Choose a number (or 'q'):").strip()
+        if choice.lower() == 'q':
+            return None
+        if choice.isdigit():
+            idx = int(choice) - 1
+            if 0 <= idx < len(matches):
+                return matches[idx]
+        print(RED + "invalid choice" + RESET)
+
+
 def search_file(filename):
     print(YELLOW + f"[*] Searching {filename}"+ RESET)
     search_paths=[os.path.expanduser("~"),"/madia","/mnt"]
