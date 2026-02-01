@@ -74,6 +74,11 @@ def main():
                     continue
              
         file_path = os.path.expanduser(raw_input)
+      print(YELLOW + "\n--- METADATA ---")
+        for k, v in metadata.items():
+            print(f"{k}: {v}")
+        print(RESET)
+
 
 
 
