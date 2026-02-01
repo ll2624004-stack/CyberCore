@@ -2,6 +2,14 @@
 
 import os
 import sys
+import subprocess
+import exifread
+from PIL import Image
+
+try:
+    import readline
+except ImportError:
+    pass
 
 # colors OK 
 RED = "\033[91m"
@@ -15,7 +23,39 @@ def banner():
     print(" " * 18 + "File Metadata Extractor")
     print(" " * 10 + "Extract all Remove only Images")
     print("=" * 60 + RESET)
+def extract_metadata(path):
+    metadata = {}
 
+    stat = os.stat(path)
+    metadata["File Size"] = f"{stat.st_size} bytes"
+    metadata["Created"] = str(stat.st_ctime)
+    metadata["Modified"] = str(stat.st_mtime)
+    metadata["Permissions"] = oct(stat.st_mode)
+
+    if is_image(path):
+        try:
+            with open(path, "rb") as f:
+                tags = exifread.process_file(f, details=False)
+                for tag in tags:
+                    metadata[f"EXIF:{tag}"] = str(tags[tag])
+        except Exception as e:
+            metadata["EXIF Error"] = str(e)
+
+    try:
+        result = subprocess.run(
+            ["exiftool", path],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True
+        )
+        for line in result.stdout.splitlines():
+            if ":" in line:
+                k, v = line.split(":", 1)
+                metadata[f"Tool:{k.strip()}"] = v.strip()
+    except FileNotFoundError:
+        metadata["Info"] = "exiftool not installed (system metadata only)"
+
+    return metadata
 
 def is_image(path):
     return path.lower().endswith((".jpg", ".jpeg", ".png", ".tiff", ".bmp"))
