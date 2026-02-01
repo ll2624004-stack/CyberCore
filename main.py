@@ -100,7 +100,7 @@ def main():
             continue
         if raw_input.lower() in ["exit", "quit"]:
             break
-          file_path = os.path.expanduser(raw_input)
+        file_path = os.path.expanduser(raw_input)
 
         if not os.path.isfile(file_path):
             matches = search_file(raw_input)
@@ -113,9 +113,9 @@ def main():
                 file_path = choose_file(matches)
                 if not file_path:
                     continue
-             metadata = extract_metadata(file_path)
+        metadata = extract_metadata(file_path)
         
-      print(YELLOW + "\n--- METADATA ---")
+        print(YELLOW + "\n--- METADATA ---")
         for k, v in metadata.items():
             print(f"{k}: {v}")
         print(RESET)
