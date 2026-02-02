@@ -23,10 +23,23 @@ GRAY   = "\033[90m"
 # هذاالداله يعمل يمسح الذي في الشاشه السودا ويعمل شكل واجهه
 def banner():
     os.system("cls" if os.name == "nt" else "clear")
-    print(CYAN + "=" * 60)
-    print(" " * 18 + "File Metadata Extractor")
-    print(" " * 10 + "Extract all Remove only Images")
-    print("=" * 60 + RESET)
+    
+    print(BLOOD + "☠ " * 31)
+    
+    print(BLOOD + r"""
+  __  __      _            _       _       ███████╗██╗  ██╗████████╗
+ |  \/  | ___| |_ __ _  __| | __ _| |_ __ _ ██╔════╝╚██╗██╔╝╚══██╔══╝
+ | |\/| |/ _ \ __/ _` |/ _` |/ _` | __/ _` | █████╗   ╚███╔╝    ██║   
+ | |  | |  __/ || (_| | (_| | (_| | || (_| | ██╔══╝   ██╔██╗    ██║   
+ |_|  |_|\___|\__\__,_|\__,_|\__,_|\__\__,_| ███████╗██╔╝ ██╗   ██║   
+                                             ╚══════╝╚═╝  ╚═╝   ╚═╝   """)
+    print(BLOOD + "☠ " * 31)
+    
+    print(RED + "\n" + " " * 4 + "──╼" + YELLOW + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" + RED + "╾──")
+    print(YELLOW + "     [!] Extract ALL  |  Remove ONLY Images")
+    print(YELLOW + "     [!] Creat By : CyberCore Team")
+    print(RED + " " * 4 + "──╼" + YELLOW + "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" + RED + "╾──" + RESET)
+
     # استخراج البيانات
 def extract_metadata(path):
     metadata = {}
