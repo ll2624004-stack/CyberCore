@@ -157,8 +157,34 @@ def main():
         for k, v in metadata.items():
             print(f"{k}: {v}")
         print(RESET)
+        if is_image(file_path):
+            print("\n1 - Remove image metadata\n2 - Save metadata\n3 - Back\n4 - Exit")
+        else:
+            print("\n1 - Save metadata\n2 - Back\n3 - Exit")
 
+        while True:
+            choice = input("\nChoice: ").strip()
+            if is_image(file_path):
+                if choice == "1":
+                    remove_image_metadata(file_path)
+                    break
+                elif choice == "2":
+                    save_metadata(file_path, metadata)
+                    break
+                elif choice == "3":
+                    break
+                elif choice == "4":
+                    sys.exit(0)
+            else:
+                if choice == "1":
+                    save_metadata(file_path, metadata)
+                    break
+                elif choice == "2":
+                    break
+                elif choice == "3":
+                    sys.exit(0)
 
+            print(RED + "Invalid choice" + RESET)
 
 # ال main من هنا يشتغل البرنامج
 if __name__ == "__main__":
