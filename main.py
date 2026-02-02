@@ -132,7 +132,7 @@ def save_metadata(path, metadata):
 def main():
     while True:
         banner()
-        raw_input = input("Enter file path or name: ").strip()
+        raw_input = input("Enter file path or name: ").strip().strip("'\"")
            
         if not raw_input:
             continue
