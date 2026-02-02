@@ -187,6 +187,11 @@ def main():
             print(RED + "Invalid choice" + RESET)
 
 # ال main من هنا يشتغل البرنامج
+def main():
+    while True:
+        banner()
+        raw_input = input("Enter file path or name: ").strip().strip("'\"")
+
 if __name__ == "__main__":
     try:
         main()
