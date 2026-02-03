@@ -160,7 +160,8 @@ def main():
         if not os.path.isfile(file_path):
             matches = search_file(raw_input)
             if not matches:
-                print(RED + "File Not Found" + RESET)
+                print(RED + "File Not Found")
+   input("press enter to try again ..."  + RESET)
                 continue
             elif len(matches) == 1:
                 file_path = matches[0]
